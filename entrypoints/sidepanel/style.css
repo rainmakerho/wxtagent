@@ -34,5 +34,8 @@ body,
 }
 
 form {
-  flex: 0 0 auto; /* 輸入欄固定高度 */
+  flex: 0 0 auto;
+}
+.ant-form {
+  margin: 5px;
 }

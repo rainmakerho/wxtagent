@@ -4,7 +4,7 @@ interface SettingsPanelProps {
   onClose: (isSaved: boolean) => void;
 }
 
-const SettingsPanel = ({ onClose }: SettingsPanelProps) => {
+export default function SettingsPanel({ onClose }: SettingsPanelProps) {
   const [form] = Form.useForm();
   useEffect(() => {
     chrome.storage.local.get(["apiUrl", "apiKey", "model"], (result) => {
@@ -38,8 +38,17 @@ const SettingsPanel = ({ onClose }: SettingsPanelProps) => {
   };
 
   return (
-    <Card title="✨ AI Copilot LLM 設定">
-      <Form form={form} layout="vertical" onFinish={handleSave}>
+    <>
+      <div className="chat-header">
+        <div className="chat-header-title">✨ AI Copilot</div>
+      </div>
+
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={handleSave}
+        className="ant-form"
+      >
         <Form.Item
           label="API URL"
           name="apiUrl"
@@ -75,8 +84,6 @@ const SettingsPanel = ({ onClose }: SettingsPanelProps) => {
           </Space>
         </Form.Item>
       </Form>
-    </Card>
+    </>
   );
-};
-
-export default SettingsPanel;
+}

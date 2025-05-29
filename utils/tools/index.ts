@@ -2,6 +2,10 @@ import { matchPattern } from "browser-extension-url-match";
 
 import { pageContentTool } from "./pageContentTool";
 import { bizformExtractFieldsTool } from "./bizformExtractFieldsTool";
+import {
+  kmExtractFieldsTool,
+  kmSetFieldsTool,
+} from "./kmTools";
 
 const tools = [pageContentTool];
 export { tools };
@@ -14,6 +18,14 @@ const toolRules = [
   {
     matches: ["https://bizform.vitalyun.com/*"],
     tools: [bizformExtractFieldsTool],
+  },
+  {
+    matches: ["https://gsskm.gss.com.tw/*"],
+    tools: [kmExtractFieldsTool],
+  },
+  {
+    matches: ["https://gsskm.gss.com.tw/*"],
+    tools: [kmSetFieldsTool],
   },
 ];
 

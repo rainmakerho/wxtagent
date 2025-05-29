@@ -3,7 +3,10 @@ import { handlers } from "@/utils/handlers";
 
 export default defineContentScript({
   matches: ["<all_urls>"],
-  main() {
+  async main() {
+    await injectScript("/tinymcetools.js", {
+      keepInDom: true,
+    });
     chrome.runtime.onMessage.addListener(
       (
         message: messageRequest,

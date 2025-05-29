@@ -11,6 +11,12 @@ export default defineConfig({
       action: {},
       permissions: ["tabs", "storage"],
       host_permissions: ["<all_urls>"],
+      web_accessible_resources: [
+        {
+          resources: ["/tinymcetools.js"],
+          matches: ["<all_urls>"],
+        },
+      ],
     };
   },
 });
